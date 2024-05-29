@@ -5,15 +5,17 @@ import {
   Flex,
   Image,
   Input,
+  Link,
   Text,
   VStack,
+  textDecoration,
 } from "@chakra-ui/react";
 import LogoButton from "../../Buttons/LogoButton";
 import React from "react";
 
 const EmailSignupForm = () => {
   return (
-    <VStack width={"full"} py={4}>
+    <VStack width={"full"} paddingTop={3}>
       <Box
         border={"1px solid #CBD5E0"}
         borderRadius={1}
@@ -30,6 +32,8 @@ const EmailSignupForm = () => {
             cursor={"pointer"}
             alt="Instagram logo"
           />
+
+          {/* Text below the logo */}
           <Text
             maxW={"full"}
             px={2}
@@ -42,12 +46,15 @@ const EmailSignupForm = () => {
           >
             Sign up to see photos and videos from your friends.
           </Text>
+
+          {/* Log in button with logo */}
           <LogoButton
             buttonText="Log in with Facebook"
             size="sm"
             fontSize={14}
             marginBottom={2}
           />
+
           {/* ------ OR ------ */}
           <Flex
             alignItems={"center"}
@@ -67,6 +74,8 @@ const EmailSignupForm = () => {
             </Text>
             <Box flex={2} h={"1px"} bg={"#CBD5E0"}></Box>
           </Flex>
+
+          {/* Input fields for sign up */}
           <Input
             borderRadius={3}
             bgColor="gray.50"
@@ -100,48 +109,70 @@ const EmailSignupForm = () => {
             size={"38px"}
             marginBottom={2}
           />
+
+          {/* Terms and condition */}
+          <Text fontSize={12} color={"gray"} align={"center"} mb={1}>
+            People who use our service may have uploaded your contact
+            information to Instagram.{" "}
+            <Link
+              color={"blue.700"}
+              href="https://www.facebook.com/help/instagram/261704639352628"
+            >
+              Learn More
+            </Link>
+          </Text>
+          <Text fontSize={12} color={"gray"} align={"center"} mb={1}>
+            By signing up, you agree to our{" "}
+            <Link
+              color={"blue.700"}
+              href="https://help.instagram.com/581066165581870/?locale=en_US"
+            >
+              Terms
+            </Link>
+            ,{" "}
+            <Link
+              color={"blue.700"}
+              href="https://www.facebook.com/privacy/policy"
+            >
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link
+              color={"blue.700"}
+              href="https://privacycenter.instagram.com/policies/cookies/"
+            >
+              Cookies Policy
+            </Link>
+            .
+          </Text>
+
+          {/* Sign up button */}
           <Button
             size={"sm"}
             width={"100%"}
             textColor={"white"}
             colorScheme="blue"
             bgColor={"#3996E5"}
-            mb={2}
+            mb={4}
           >
-            Log in
+            Sign up
           </Button>
-
-          <Flex
-            alignItems={"center"}
-            justifyContent={"center"}
-            cursor={"pointer"}
-            mb={2}
-          >
-            <Image src="facebookPrimary.png" w={5} alt="Facebook logo" />
-            <Text mx={2} fontSize={14} fontWeight={500} color={"#0866FF"}>
-              Log in with Facebook
-            </Text>
-          </Flex>
-          <Text fontSize={12} cursor={"pointer"}>
-            Forgot password?
-          </Text>
         </VStack>
       </Box>
 
+      {/* Log in */}
       <Box
         textAlign={"center"}
         border={"1px solid #CBD5E0"}
         borderRadius={1}
-        padding={5}
+        padding={6}
         minW={"100%"}
       >
-        <Text
-          fontSize={14}
-          fontWeight={500}
-          color={"blue.400"}
-          cursor={"pointer"}
-        >
-          Create new account
+        <Text fontSize={14}>
+          Have an account?{" "}
+          <Link color={"blue.400"} fontWeight={500}>
+            Log in
+          </Link>
         </Text>
       </Box>
     </VStack>

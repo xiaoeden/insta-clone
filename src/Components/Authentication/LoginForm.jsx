@@ -29,6 +29,8 @@ const LoginForm = () => {
             cursor={"pointer"}
             alt="Instagram logo"
           />
+
+          {/* Input fields for username and password */}
           <Input
             borderRadius={3}
             bgColor="gray.50"
@@ -46,6 +48,8 @@ const LoginForm = () => {
             size={"38px"}
             marginBottom={2}
           />
+
+          {/* Login button */}
           <Button
             size={"sm"}
             minW={"full"}

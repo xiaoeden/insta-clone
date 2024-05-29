@@ -17,7 +17,7 @@ const AuthForm = (props) => {
         <Box textAlign={"center"} fontSize={14}>
           Get the app.
         </Box>
-        <Flex gap={5} justifyContent={"center"}>
+        <Flex gap={2} justifyContent={"center"}>
           <Image src="/playstore.png" h={"10"} alt="Playstore logo" />
           <Image src="/microsoft.png" h={"10"} alt="Microsoft logo" />
         </Flex>
