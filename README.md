@@ -1,5 +1,15 @@
 # Work Diaries
 
+Reference: https://github.com/burakorkmez/instagram-clone
+
+5/29/2024
+
+- Disable the log in button when the password length is less than 6
+- A Show/Hide text is shown on the right of the password input box when the user is inputting into the field
+- Users are navigated to their account home page after they clicked "Log in" (no authentication at this stage)
+- _TODO_: Show/Hide hover effect
+- _TODO_: Note that in the real Instagram website, the placeholder text in the input box shrinks its size and move to the upper right. This is something to be done later https://stackoverflow.com/questions/35942247/how-to-move-placeholder-to-top-on-focus-and-while-typing
+
 5/28/2024
 
 - Added AuthForm

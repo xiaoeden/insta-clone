@@ -4,12 +4,30 @@ import {
   Flex,
   Image,
   Input,
+  InputGroup,
+  InputRightElement,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const [userLoginCredential, setUserLoginCredential] = useState({
+    email: "",
+    password: "",
+  });
+  const [isPasswordTooShort, setIsPasswordTooShort] = useState(true);
+  const [isPasswordShowing, setIsPasswordShowing] = useState(false);
+  const [isPasswordEmpty, setIsPasswordEmpty] = useState(true);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    if (userLoginCredential.email && userLoginCredential.password) {
+      navigate("/");
+    }
+  };
+
   return (
     <VStack width={"full"}>
       <Box
@@ -34,20 +52,54 @@ const LoginForm = () => {
           <Input
             borderRadius={3}
             bgColor="gray.50"
+            fontSize={12}
+            padding={2}
+            size={"38px"}
             placeholder="Phone number, username, or email"
-            fontSize={12}
-            padding={2}
-            size={"38px"}
+            type="email"
+            value={userLoginCredential.email}
+            onChange={(e) =>
+              setUserLoginCredential({
+                ...userLoginCredential,
+                email: e.target.value,
+              })
+            }
           />
-          <Input
-            borderRadius={3}
-            bgColor="gray.50"
-            placeholder="Password"
-            fontSize={12}
-            padding={2}
-            size={"38px"}
-            marginBottom={2}
-          />
+          <InputGroup>
+            <Input
+              borderRadius={3}
+              bgColor="gray.50"
+              fontSize={12}
+              padding={2}
+              size={"38px"}
+              marginBottom={2}
+              placeholder="Password"
+              type={isPasswordShowing ? "text" : "password"}
+              value={userLoginCredential.password}
+              onChange={(e) => {
+                setUserLoginCredential({
+                  ...userLoginCredential,
+                  password: e.target.value,
+                });
+                setIsPasswordTooShort(e.target.value.length < 6);
+                setIsPasswordEmpty(e.target.value <= 0);
+              }}
+            />
+
+            {isPasswordEmpty ? null : (
+              <InputRightElement
+                fontSize={14}
+                fontWeight={500}
+                marginRight={2}
+                cursor={"pointer"}
+                onClick={(e) => {
+                  setIsPasswordShowing(!isPasswordShowing);
+                }}
+              >
+                {isPasswordShowing ? "Hide" : "Show"}
+              </InputRightElement>
+            )}
+          </InputGroup>
 
           {/* Login button */}
           <Button
@@ -57,6 +109,9 @@ const LoginForm = () => {
             colorScheme="blue"
             bgColor={"#3996E5"}
             mb={2}
+            onClick={handleLogin}
+            isDisabled={isPasswordTooShort}
+            cursor={"default"}
           >
             Log in
           </Button>
