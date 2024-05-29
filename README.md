@@ -1,8 +1,13 @@
-# React + Vite
+# Work Diaries
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+5/27/2024
 
-Currently, two official plugins are available:
+- Setting up the project, install Chakra https://v2.chakra-ui.com/
+- Create HomePage and AuthPage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+5/28/2024
+
+- Added AuthForm
+- Added LoginForm and SignupForm, which are nested in the AuthForm
+- Added LogoButton, which is a button with a Facebook logo before the text
+- Added Facebook icons from https://about.meta.com/brand/resources/facebook/logo/, the icon downloaded from this link is a rounded icon, but I couldn't find a square icon that's free so let's just roll with the rounded one
