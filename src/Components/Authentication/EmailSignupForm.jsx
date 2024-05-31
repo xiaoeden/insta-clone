@@ -1,19 +1,23 @@
 import {
   Box,
   Button,
-  Container,
   Flex,
   Image,
   Input,
   Link,
   Text,
   VStack,
-  textDecoration,
 } from "@chakra-ui/react";
 import LogoButton from "../../Buttons/LogoButton";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const EmailSignupForm = () => {
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <VStack width={"full"} paddingTop={3}>
       <Box
@@ -161,6 +165,7 @@ const EmailSignupForm = () => {
       </Box>
 
       {/* Log in */}
+
       <Box
         textAlign={"center"}
         border={"1px solid #CBD5E0"}
@@ -168,12 +173,20 @@ const EmailSignupForm = () => {
         padding={6}
         minW={"100%"}
       >
-        <Text fontSize={14}>
-          Have an account?{" "}
-          <Link color={"blue.400"} fontWeight={500}>
+        <Flex alignItems={"center"} justifyContent={"center"}>
+          <Box fontSize={14} marginEnd={1}>
+            Have an account?
+          </Box>
+          <Box
+            fontSize={14}
+            fontWeight={500}
+            color={"blue.400"}
+            cursor={"pointer"}
+            onClick={handleLogin}
+          >
             Log in
-          </Link>
-        </Text>
+          </Box>
+        </Flex>
       </Box>
     </VStack>
   );

@@ -28,6 +28,10 @@ const LoginForm = () => {
     }
   };
 
+  const handleSignup = () => {
+    navigate("/emailsignup");
+  };
+
   return (
     <VStack width={"full"}>
       <Box
@@ -95,6 +99,7 @@ const LoginForm = () => {
                 onClick={(e) => {
                   setIsPasswordShowing(!isPasswordShowing);
                 }}
+                _hover={{ color: "gray.500" }}
               >
                 {isPasswordShowing ? "Hide" : "Show"}
               </InputRightElement>
@@ -111,7 +116,6 @@ const LoginForm = () => {
             mb={2}
             onClick={handleLogin}
             isDisabled={isPasswordTooShort}
-            cursor={"default"}
           >
             Log in
           </Button>
@@ -167,6 +171,7 @@ const LoginForm = () => {
           fontWeight={500}
           color={"blue.400"}
           cursor={"pointer"}
+          onClick={handleSignup}
         >
           Create new account
         </Text>
