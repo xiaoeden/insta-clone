@@ -2,6 +2,11 @@
 
 Reference: https://github.com/burakorkmez/instagram-clone
 
+5/31/2024
+
+- Started constructing the post layout for home page
+- _TODO_: The caption content cannot be formatted correctly when we add a VerifiedIcon between the username and caption content. The content will start a newline when the text overflow. Adding a `textOverflow={"ellipsis"}` didn't help.
+
 5/30/2024
 
 - Created PageLayout and Sidebar

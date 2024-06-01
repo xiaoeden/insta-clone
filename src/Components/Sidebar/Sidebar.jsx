@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Link, Tooltip } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Link } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import React from "react";
 import {
@@ -100,31 +100,22 @@ const Sidebar = () => {
 
           <Flex direction={"column"} gap={1} cursor={"pointer"}>
             {sidebarItems.map((item, index) => (
-              <Tooltip
-                hasArrow
-                label={item.text}
-                placement="right"
-                ml={1}
-                openDelay={500}
-                display={{ base: "block", md: "none" }}
+              <Link
                 key={index}
+                display={"flex"}
+                to={null}
+                as={RouterLink}
+                alignItems={"center"}
+                gap={4}
+                _hover={{ bg: "gray.200" }}
+                borderRadius={6}
+                p={2}
+                py={3}
+                w={"full"}
               >
-                <Link
-                  display={"flex"}
-                  to={null}
-                  as={RouterLink}
-                  alignItems={"center"}
-                  gap={4}
-                  _hover={{ bg: "gray.200" }}
-                  borderRadius={6}
-                  p={2}
-                  py={3}
-                  w={"full"}
-                >
-                  {item.icon}
-                  <Box display={{ base: "none", md: "block" }}>{item.text}</Box>
-                </Link>
-              </Tooltip>
+                {item.icon}
+                <Box display={{ base: "none", md: "block" }}>{item.text}</Box>
+              </Link>
             ))}
           </Flex>
         </Flex>
